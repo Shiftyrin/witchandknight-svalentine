@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Witch and Knight's Valentine</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+        
+        body {
+            margin: 0;
+            font-family: 'Times New Roman', serif;
+            overflow-x: hidden;
+            background: #ffd1dc;
+            color: #333;
+            transition: background 1s ease;
+        }
+        .section {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 5vw;
+            font-size: 2.5rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1.5s ease, transform 1.5s ease;
+        }
+        .section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .envelope-container {
+            position: relative;
+            width: 220px;
+            height: 150px;
+            cursor: pointer;
+        }
+        .envelope {
+            width: 100%;
+            height: 100%;
+            background: #ffcccb;
+            position: relative;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            font-family: 'Dancing Script', cursive;
+        }
+        .envelope-lid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background: #ffb6c1;
+            border-radius: 10px 10px 0 0;
+            transform-origin: top;
+            transition: transform 1s ease;
+        }
+        .paper {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 180px;
+    height: 140px;
+    background: white;
+    transform: translate(-50%, -50%) translateY(0%);
+    transition: transform 1s ease 0.5s;
+    text-align: center;
+    padding: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: 'Dancing Script', cursive;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+}
+        .envelope-container.open .envelope-lid {
+            transform: rotateX(150deg);
+        }
+        .envelope-container.open .paper {
+    transform: translate(-50%, -50%) translateY(-120%);
+    opacity: 1;
+}
+    </style>
+</head>
+<body>
+    <div class="section visible">Once upon a time, in a world torn between light and darkness, there was a witch—feared by all, whispered in legends. She was said to be untouchable, a mistress of forbidden spells, the last of her kind. None who stood against her had ever walked away.</div>
+    <div class="section">And then, there was the knight. A warrior draped in shadows, feared not because he fought against the darkness, but because he was the darkness itself. His blade had silenced every witch before her, his presence a storm upon the battlefield.</div>
+    <div class="section">When their paths crossed, the witch smirked, her voice laced with defiance. "Your armor is nothing but metal. I will turn you into a frog before you lift your blade."</div>
+    <div class="section">A crackling spell shot toward him—a burst of darkness strong enough to crumble mountains.</div>
+    <div class="section">And yet, it did nothing.</div>
+    <div class="section">The knight stood still, unfazed. His voice was calm, almost amused. "You studied the darkness? I was born from it."</div>
+    <div class="section">For the first time in her life, the witch hesitated. Fear crept into her heart. "Then… we are on the same side?" she whispered. "Why would you slaughter your own? Why would you destroy those who walk the same path as you?"</div>
+    <div class="section">His answer was cold. "Because I do not care. Light, darkness—none of it matters. Only one thing does. I must be the strongest. Even if it means standing alone."</div>
+    <div class="section">The witch had no words. What could she say to a man who had already given up on the world?</div>
+    <div class="section">She closed her eyes and surrendered to fate.</div>
+    <div class="section">His blade rose, ready to sever the last thread of her life. But in that final moment, something happened.</div>
+    <div class="section">The knight hesitated.</div>
+    <div class="section">A force more powerful than magic, heavier than fate itself, rooted him in place. His hand trembled. His breath caught in his throat.</div>
+    <div class="section">His eyes—once void of meaning—now saw her.</div>
+    <div class="section">Her defiant gaze. Her wild, untamed spirit. The fire that still burned within her despite facing death.</div>
+    <div class="section">"What is this power?" he whispered, his voice breaking.</div>
+    <div class="section">He tried to look away, to fight it, but he couldn’t.</div>
+    <div class="section">He dropped his sword.</div>
+    <div class="section">Knees hitting the ground, he looked up at the witch, lost and undone.</div>
+    <div class="section">And then, she did something neither of them expected. She knelt before him, her arms wrapping around him like the first warmth after a never-ending winter.</div>
+    <div class="section">"I think... it's love."</div>
+    <div class="section">The knight closed his eyes, letting himself sink into her embrace.</div>
+    <div class="section">"Let’s leave it all behind," she whispered. "Light, darkness, war, blood—it’s all killing us. Let’s walk away from it together. Just you and me."</div>
+    <div class="section">For the first time in his life, the knight smiled.</div>
+    <div class="section">"Yes, Your Majesty."</div>
+    <div class="section">From that moment, he no longer served the darkness nor the light. He was hers, and she was his.</div>
+    <div class="section">They lived together. They died together.</div>
+    <div class="section">
+        <div class="envelope-container" onclick="this.classList.toggle('open')">
+            <div class="flap"></div>
+            <div class="envelope">Open Me</div>
+            <div class="paper">They keep reincarnated through time.And if fate was kind…as us.</div>
+        </div>
+    </div>
+    
+     <script>
+        const sections = document.querySelectorAll('.section');
+        let colors = ['#ffd1dc', '#fff0b3'];
+        let currentIndex = 0;
+
+        window.addEventListener('scroll', () => {
+            let scrollPos = window.scrollY + window.innerHeight * 0.7;
+            sections.forEach((section, index) => {
+                if (section.offsetTop < scrollPos) {
+                    section.classList.add('visible');
+                    document.body.style.background = colors[index % colors.length];
+                }
+            });
+        });
+    </script>
+</body>
+</html>
